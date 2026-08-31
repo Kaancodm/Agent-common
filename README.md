@@ -23,7 +23,6 @@ Das Repository enthält bewusst noch keine Bindung an ein bestimmtes Modell, SDK
 │   ├── README.md                # Konventionen für Agent-Definitionen
 │   └── agent-template.md        # Kopierbare Vorlage für neue Agenten
 ├── skills/
-│   ├── README.md                # Konventionen für wiederverwendbare Skills
 │   ├── agent-common/            # Allgemeiner End-to-End-Arbeits-Skill
 │   └── host-workspace-operator/ # Sichere host-native Workspace-Arbeit
 ├── workflows/
@@ -36,6 +35,7 @@ Das Repository enthält bewusst noch keine Bindung an ein bestimmtes Modell, SDK
 │   └── plugin.json              # Manifest des skills-only Plugins
 └── docs/
     ├── architecture.md          # Architektur, Lebenszyklus und Erweiterungspunkte
+    ├── skills.md                # Konventionen für wiederverwendbare Skills
     └── plugin-experience.md     # Produktgrenze und Plugin-Entscheidungen
 ```
 
@@ -68,8 +68,9 @@ Das Repository enthält die Projektgrundstruktur, wiederverwendbare Agenten und
 Workflows sowie ein lokal validierbares `skills-only`-Plugin. Eine öffentliche
 Plugin-Einreichung ist noch nicht freigegeben; dafür fehlen insbesondere eine
 gegebenenfalls erforderliche Marketplace-Verifikation sowie die in
-[`docs/plugin-experience.md`](docs/plugin-experience.md) genannten URLs,
-Listing- und Reviewer-Nachweise.
+[`docs/plugin-experience.md`](docs/plugin-experience.md) genannten URLs und
+Portalbestätigungen. Listing- und Reviewer-Nachweise liegen unter
+[`submission/`](submission/) vor.
 
 ## Beiträge
 

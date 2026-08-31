@@ -1,0 +1,34 @@
+{
+  "name": "Agent Common",
+  "subtitle": "Allgemeine Aufgaben umsetzen",
+  "description": "Agent Common strukturiert und bearbeitet allgemeine Projektaufgaben von der Zielklaerung bis zum geprueften Ergebnis. Das skills-only Plugin nutzt vorhandene Dateien und Quellen, trifft sichere reversible Annahmen, wahrt klare Grenzen fuer Aenderungen und externe Aktionen und dokumentiert Umsetzung, Pruefung sowie verbleibende offene Punkte.",
+  "category": "Productivity",
+  "developerName": "Kaancodm",
+  "websiteURL": null,
+  "customerSupportURL": null,
+  "privacyPolicyURL": null,
+  "termsOfServiceURL": null,
+  "version": "0.1.0",
+  "packageName": "agent-common",
+  "capabilities": [
+    "Allgemeine Projektaufgaben strukturiert umsetzen",
+    "Vorhandene Dateien und Quellen kontextbezogen auswerten",
+    "Autorisierte Aenderungen fokussiert umsetzen und pruefen"
+  ],
+  "starterPrompts": [
+    "Bearbeite diese Aufgabe eigenstaendig bis zu einem nutzbaren Ergebnis.",
+    "Strukturiere diesen Auftrag und setze die erforderlichen Aenderungen um.",
+    "Pruefe den vorhandenen Projektkontext und liefere den naechsten belastbaren Stand."
+  ],
+  "brand": {
+    "concept": "Mehrere offene Arbeitslinien laufen in einem klaren Abschluss-Haken zusammen.",
+    "lightLogo": "./assets/logo-light.svg",
+    "darkLogo": "./assets/logo-dark.svg",
+    "composerIcon": "./assets/composer-icon.svg"
+  },
+  "publisherVerification": {
+    "required": true,
+    "status": "verify-in-openai-platform-before-submission"
+  },
+  "note": "Repository-maintained evidence format. This is not an OpenAI upload schema."
+}

@@ -18,8 +18,8 @@ Ein guter Skill:
 ```text
 skills/<skill-name>/
 ├── SKILL.md              # Ablauf, Grenzen und Erfolgskriterien
-├── examples/              # kleine, synthetische Beispiele
-└── references/            # nur benötigte Referenzmaterialien
+├── examples/             # kleine, synthetische Beispiele
+└── references/           # nur benötigte Referenzmaterialien
 ```
 
 Für einfache Skills reicht zunächst eine einzelne `SKILL.md`. Zusätzliche Dateien werden nur angelegt, wenn sie die Anwendung verständlicher oder verlässlicher machen.

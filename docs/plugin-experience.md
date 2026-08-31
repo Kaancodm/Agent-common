@@ -35,6 +35,6 @@ Der Plugin gewaehrt diese Faehigkeiten nicht. Er nutzt sie nur, wenn der jeweili
 
 ## Status
 
-Die Konfiguration ist fuer lokale Validierung vorbereitet. Als Projekt-Publisher ist der verbundene GitHub-Account `Kaancodm` hinterlegt. Eine oeffentliche Einreichung ist weiterhin nicht freigegeben und bleibt ohne erforderliche URLs, Listing-Pack, Reviewer-Evidenz und eine gegebenenfalls zusaetzlich verlangte Marketplace-Verifikation bewusst ausserhalb des Scopes.
+Die Konfiguration ist fuer lokale Validierung vorbereitet. Als Projekt-Publisher ist der verbundene GitHub-Account `Kaancodm` hinterlegt. Listing-Pack und Reviewer-Evidenz liegen unter `submission/` vor. Eine oeffentliche Einreichung ist weiterhin nicht freigegeben und bleibt ohne erforderliche URLs und eine gegebenenfalls zusaetzlich verlangte Marketplace-Verifikation bewusst ausserhalb des Scopes.
 
-Das lokale Brand-Pack ist vorhanden. Website-, Support-, Datenschutz- und AGB-URLs sowie Listing- und Reviewer-Evidenz fehlen weiterhin.
+Das lokale Brand-Pack ist vorhanden. Website-, Support-, Datenschutz- und AGB-URLs fehlen weiterhin. Die Publisher-Verifikation in der OpenAI Platform und die Country-/Region-Auswahl sind nicht bestaetigt.

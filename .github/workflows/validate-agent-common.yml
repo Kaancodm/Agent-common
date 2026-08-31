@@ -25,6 +25,7 @@ jobs:
           test -s docs/architecture.md
           test -s docs/security.md
           test -s docs/agent-contract.md
+          test -s docs/skills.md
           test -s policy/approval-policy.json
           test -s schemas/handoff.schema.json
       - name: Validate required plugin files
@@ -52,6 +53,9 @@ jobs:
               Path("skills/agent-common/SKILL.md"): "agent-common",
               Path("skills/host-workspace-operator/SKILL.md"): "host-workspace-operator",
           }
+          for item in Path("skills").iterdir():
+              if not item.is_dir() or not (item / "SKILL.md").is_file():
+                  raise SystemExit(f"Invalid direct skills entry: {item}")
           for skill_file, expected_name in expected_skills.items():
               content = skill_file.read_text(encoding="utf-8")
               if not content.startswith("---\n") or "\n---\n" not in content[4:]:
