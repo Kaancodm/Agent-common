@@ -1,0 +1,35 @@
+name: Validate Agent Common
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate JSON files
+        run: |
+          python -m json.tool policy/approval-policy.json >/dev/null
+          python -m json.tool schemas/handoff.schema.json >/dev/null
+      - name: Validate required foundation files
+        run: |
+          test -s AGENTS.md
+          test -s README.md
+          test -s docs/architecture.md
+          test -s docs/security.md
+          test -s docs/agent-contract.md
+          test -s policy/approval-policy.json
+          test -s schemas/handoff.schema.json
+      - name: Guard against obvious committed secrets
+        shell: bash
+        run: |
+          if grep -RInE --exclude-dir=.git --exclude='*.md' '(BEGIN (RSA|OPENSSH|EC) PRIVATE KEY|AKIA[0-9A-Z]{16}|sk-[A-Za-z0-9]{20,})' .; then
+            echo 'Potential secret detected.' >&2
+            exit 1
+          fi
