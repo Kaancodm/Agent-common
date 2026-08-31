@@ -3,14 +3,14 @@
   "version": "0.1.0",
   "description": "Bearbeitet allgemeine Projektaufgaben pragmatisch, praezise und eigenstaendig mit klaren Annahmen, sicherer Workspace-Arbeit und nachvollziehbarer Verifikation.",
   "author": {
-    "name": "Unverified Publisher"
+    "name": "Kaancodm"
   },
   "skills": "./skills/",
   "interface": {
     "displayName": "Agent Common",
     "shortDescription": "Allgemeine Aufgaben umsetzen",
     "longDescription": "Agent Common strukturiert und bearbeitet allgemeine Projektaufgaben von der Zielklaerung bis zum geprueften Ergebnis. Der Plugin-Skill nutzt vorhandene Dateien und Quellen, trifft sichere reversible Annahmen, wahrt klare Grenzen fuer Aenderungen und externe Aktionen und dokumentiert Umsetzung, Pruefung sowie verbleibende offene Punkte.",
-    "developerName": "Unverified Publisher",
+    "developerName": "Kaancodm",
     "category": "Productivity",
     "logo": "./assets/logo-light.svg",
     "composerIcon": "./assets/composer-icon.svg",
