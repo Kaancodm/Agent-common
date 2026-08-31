@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "default_state_for_gated_actions": "PENDING_APPROVAL",
+  "principle": "tool_access_is_not_authorization",
+  "gates": [
+    {"id":"destructive","requires_human_approval":true,"examples":["delete data","force push","irreversible mutation"]},
+    {"id":"security_sensitive","requires_human_approval":true,"examples":["change auth","change privileges","expose security configuration"]},
+    {"id":"financial","requires_human_approval":true,"examples":["paid purchase","meaningful spend","billing change"]},
+    {"id":"production","requires_human_approval":true,"examples":["deploy production","modify production data","release externally"]},
+    {"id":"external_communication","requires_human_approval":true,"examples":["send message as user","publish content","contact third party"]},
+    {"id":"sensitive_data","requires_human_approval":true,"examples":["export private data","reveal secret","share credential"]}
+  ],
+  "audit_fields": ["actor","action","target","risk_reason","decision","approver","evidence","outcome"]
+}
