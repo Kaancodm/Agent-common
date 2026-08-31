@@ -1,0 +1,29 @@
+{
+  "name": "agent-common",
+  "version": "0.1.0",
+  "description": "Bearbeitet allgemeine Projektaufgaben pragmatisch, praezise und eigenstaendig mit klaren Annahmen, sicherer Workspace-Arbeit und nachvollziehbarer Verifikation.",
+  "author": {
+    "name": "Unverified Publisher"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Agent Common",
+    "shortDescription": "Allgemeine Aufgaben umsetzen",
+    "longDescription": "Agent Common strukturiert und bearbeitet allgemeine Projektaufgaben von der Zielklaerung bis zum geprueften Ergebnis. Der Plugin-Skill nutzt vorhandene Dateien und Quellen, trifft sichere reversible Annahmen, wahrt klare Grenzen fuer Aenderungen und externe Aktionen und dokumentiert Umsetzung, Pruefung sowie verbleibende offene Punkte.",
+    "developerName": "Unverified Publisher",
+    "category": "Productivity",
+    "logo": "./assets/logo-light.svg",
+    "composerIcon": "./assets/composer-icon.svg",
+    "brandColor": "#2457D6",
+    "capabilities": [
+      "Aufgaben strukturiert bis zum nutzbaren Ergebnis bearbeiten",
+      "Projektdateien und Quellen kontextbezogen auswerten",
+      "Autorisierte Aenderungen fokussiert umsetzen und pruefen"
+    ],
+    "defaultPrompt": [
+      "Bearbeite diese Aufgabe eigenstaendig bis zu einem nutzbaren Ergebnis.",
+      "Strukturiere diesen Auftrag und setze die erforderlichen Aenderungen um.",
+      "Pruefe den vorhandenen Kontext und liefere den sinnvollsten naechsten Stand."
+    ]
+  }
+}
