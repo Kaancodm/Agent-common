@@ -67,9 +67,9 @@ verwendet werden. Neue Aufträge beginnen mit
 Das Repository enthält die Projektgrundstruktur, wiederverwendbare Agenten und
 Workflows sowie ein lokal validierbares `skills-only`-Plugin. Eine öffentliche
 Plugin-Einreichung ist noch nicht freigegeben; dafür fehlen insbesondere eine
-verifizierte Entwickleridentität und die in
-[`docs/plugin-experience.md`](docs/plugin-experience.md) genannten Listing- und
-Reviewer-Nachweise.
+gegebenenfalls erforderliche Marketplace-Verifikation sowie die in
+[`docs/plugin-experience.md`](docs/plugin-experience.md) genannten URLs,
+Listing- und Reviewer-Nachweise.
 
 ## Beiträge
 
