@@ -17,6 +17,7 @@ jobs:
         run: |
           python -m json.tool policy/approval-policy.json >/dev/null
           python -m json.tool schemas/handoff.schema.json >/dev/null
+          python -m json.tool .codex-plugin/plugin.json >/dev/null
       - name: Validate required foundation files
         run: |
           test -s AGENTS.md
@@ -26,6 +27,47 @@ jobs:
           test -s docs/agent-contract.md
           test -s policy/approval-policy.json
           test -s schemas/handoff.schema.json
+      - name: Validate required plugin files
+        run: |
+          test -s .codex-plugin/plugin.json
+          test -s prompts/agent-common.md
+          test -s templates/task-brief.md
+          test -s skills/agent-common/SKILL.md
+          test -s skills/agent-common/agents/openai.yaml
+          test -s skills/host-workspace-operator/SKILL.md
+          test -s skills/host-workspace-operator/agents/openai.yaml
+          test -s assets/logo-light.svg
+          test -s assets/logo-dark.svg
+          test -s assets/composer-icon.svg
+      - name: Validate plugin assets and skill metadata
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from xml.etree import ElementTree
+
+          for asset in Path("assets").glob("*.svg"):
+              ElementTree.parse(asset)
+
+          expected_skills = {
+              Path("skills/agent-common/SKILL.md"): "agent-common",
+              Path("skills/host-workspace-operator/SKILL.md"): "host-workspace-operator",
+          }
+          for skill_file, expected_name in expected_skills.items():
+              content = skill_file.read_text(encoding="utf-8")
+              if not content.startswith("---\n") or "\n---\n" not in content[4:]:
+                  raise SystemExit(f"Invalid frontmatter boundary: {skill_file}")
+              frontmatter = content.split("---", 2)[1]
+              fields = {
+                  key.strip(): value.strip()
+                  for line in frontmatter.splitlines()
+                  if ":" in line
+                  for key, value in [line.split(":", 1)]
+              }
+              if fields.get("name") != expected_name:
+                  raise SystemExit(f"Unexpected skill name: {skill_file}")
+              if not fields.get("description"):
+                  raise SystemExit(f"Missing skill description: {skill_file}")
+          PY
       - name: Guard against obvious committed secrets
         shell: bash
         run: |
