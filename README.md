@@ -23,11 +23,20 @@ Das Repository enthält bewusst noch keine Bindung an ein bestimmtes Modell, SDK
 │   ├── README.md                # Konventionen für Agent-Definitionen
 │   └── agent-template.md        # Kopierbare Vorlage für neue Agenten
 ├── skills/
-│   └── README.md                # Konventionen für wiederverwendbare Skills
+│   ├── README.md                # Konventionen für wiederverwendbare Skills
+│   ├── agent-common/            # Allgemeiner End-to-End-Arbeits-Skill
+│   └── host-workspace-operator/ # Sichere host-native Workspace-Arbeit
 ├── workflows/
 │   └── README.md                # Konventionen für Agent-Workflows
+├── prompts/
+│   └── agent-common.md          # Direkt nutzbarer Projektprompt
+├── templates/
+│   └── task-brief.md            # Vorlage für konkrete Aufgaben
+├── .codex-plugin/
+│   └── plugin.json              # Manifest des skills-only Plugins
 └── docs/
-    └── architecture.md          # Architektur, Lebenszyklus und Erweiterungspunkte
+    ├── architecture.md          # Architektur, Lebenszyklus und Erweiterungspunkte
+    └── plugin-experience.md     # Produktgrenze und Plugin-Entscheidungen
 ```
 
 ## Schnellstart
@@ -37,6 +46,12 @@ Das Repository enthält bewusst noch keine Bindung an ein bestimmtes Modell, SDK
 3. Beschreibe wiederkehrende Fähigkeiten unter `skills/`.
 4. Komponiere mehrere Agenten und Skills erst dann in einem Workflow unter `workflows/`.
 5. Prüfe vor dem Commit, ob Zweck, Eingaben, Ausgaben, Grenzen und Erfolgskriterien eindeutig sind.
+
+Für allgemeine Projektarbeit kann der Inhalt von
+[`prompts/agent-common.md`](prompts/agent-common.md) direkt als Projektanweisung
+verwendet werden. Neue Aufträge beginnen mit
+[`templates/task-brief.md`](templates/task-brief.md). Das enthaltene
+`skills-only`-Plugin stellt denselben Ablauf in Codex-kompatibler Form bereit.
 
 ## Grundprinzipien
 
@@ -49,7 +64,12 @@ Das Repository enthält bewusst noch keine Bindung an ein bestimmtes Modell, SDK
 
 ## Status
 
-Das Repository enthält die initiale Projektgrundstruktur. Die fachlichen Agenten, Skills und ausführbaren Adapter werden schrittweise ergänzt.
+Das Repository enthält die Projektgrundstruktur, wiederverwendbare Agenten und
+Workflows sowie ein lokal validierbares `skills-only`-Plugin. Eine öffentliche
+Plugin-Einreichung ist noch nicht freigegeben; dafür fehlen insbesondere eine
+verifizierte Entwickleridentität und die in
+[`docs/plugin-experience.md`](docs/plugin-experience.md) genannten Listing- und
+Reviewer-Nachweise.
 
 ## Beiträge
 
