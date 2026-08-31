@@ -6,7 +6,7 @@ Dieses Repository sammelt wiederverwendbare Agent-Definitionen, Skills und Workf
 
 ## Vor jeder Änderung
 
-1. Lies die README und die relevante Bereichsdatei unter `agents/`, `skills/` oder `workflows/`.
+1. Lies die README und die relevante Bereichsdokumentation unter `agents/`, `docs/skills.md` oder `workflows/`.
 2. Bestimme den konkreten Nutzerwert und den kleinsten sinnvollen Änderungsumfang.
 3. Prüfe, ob bereits eine passende Definition existiert, bevor du eine neue anlegst.
 4. Halte Annahmen sichtbar fest, wenn Anforderungen nicht vollständig spezifiziert sind.
