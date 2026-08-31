@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agent-common.local/schemas/handoff.schema.json",
+  "title": "Agent Common Handoff",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["objective","scope","state","ref","completed","evidence","risks","approval_state","next_action"],
+  "properties": {
+    "objective": {"type":"string","minLength":1},
+    "scope": {"type":"string","minLength":1},
+    "state": {"type":"string","enum":["PLANNED","IN_PROGRESS","BLOCKED","PENDING_APPROVAL","VERIFYING","READY_FOR_REVIEW","DONE"]},
+    "ref": {"type":"string","minLength":1},
+    "completed": {"type":"array","items":{"type":"string"}},
+    "evidence": {"type":"array","items":{"type":"string"}},
+    "decisions": {"type":"array","items":{"type":"string"},"default":[]},
+    "assumptions": {"type":"array","items":{"type":"string"},"default":[]},
+    "risks": {"type":"array","items":{"type":"string"}},
+    "approval_state": {"type":"string","enum":["NOT_REQUIRED","PENDING_APPROVAL","APPROVED","REJECTED","OVERRIDDEN"]},
+    "next_action": {"type":"string","minLength":1}
+  }
+}
