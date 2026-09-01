@@ -13,21 +13,44 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - name: Install Python dependencies
+        run: python -m pip install --quiet pyyaml
+
       - name: Validate JSON files
         run: |
           python -m json.tool policy/approval-policy.json >/dev/null
           python -m json.tool schemas/handoff.schema.json >/dev/null
           python -m json.tool .codex-plugin/plugin.json >/dev/null
+          python -m json.tool submission/listing.json >/dev/null
+          python -m json.tool submission/reviewer-packet.json >/dev/null
+
+      - name: Validate YAML files
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import yaml
+
+          for path in sorted(Path("skills").rglob("agents/openai.yaml")):
+              with path.open(encoding="utf-8") as handle:
+                  yaml.safe_load(handle)
+              print(f"ok {path}")
+          PY
+
       - name: Validate required foundation files
         run: |
           test -s AGENTS.md
           test -s README.md
+          test -s CHANGELOG.md
+          test -s CONTRIBUTING.md
+          test -s LICENSE
           test -s docs/architecture.md
           test -s docs/security.md
           test -s docs/agent-contract.md
           test -s docs/skills.md
           test -s policy/approval-policy.json
           test -s schemas/handoff.schema.json
+
       - name: Validate required plugin files
         run: |
           test -s .codex-plugin/plugin.json
@@ -40,6 +63,9 @@ jobs:
           test -s assets/logo-light.svg
           test -s assets/logo-dark.svg
           test -s assets/composer-icon.svg
+          test -s scripts/build_plugin_package.py
+          test -s scripts/verify_evidence.py
+
       - name: Validate plugin assets and skill metadata
         run: |
           python - <<'PY'
@@ -72,10 +98,66 @@ jobs:
               if not fields.get("description"):
                   raise SystemExit(f"Missing skill description: {skill_file}")
           PY
+
+      - name: Check Markdown relative links
+        run: |
+          python - <<'PY'
+          import re
+          import sys
+          from pathlib import Path
+
+          link_re = re.compile(r"\]\(([^)]+)\)")
+          problems = []
+          for md in sorted(Path(".").rglob("*.md")):
+              if ".git" in md.parts:
+                  continue
+              for match in link_re.finditer(md.read_text(encoding="utf-8")):
+                  raw = match.group(1).strip()
+                  if raw.startswith(("http://", "https://", "#", "mailto:")):
+                      continue
+                  target = raw.split("#", 1)[0].split("?", 1)[0]
+                  if not target:
+                      continue
+                  if not (md.parent / target).resolve().exists():
+                      problems.append(f"{md}: {raw}")
+          if problems:
+              print("dead relative links:")
+              for problem in problems:
+                  print(f"  {problem}")
+              sys.exit(1)
+          print("markdown links ok")
+          PY
+
+      - name: Check version consistency
+        run: |
+          python - <<'PY'
+          import json
+          import re
+          import sys
+          from pathlib import Path
+
+          manifest = json.loads(Path(".codex-plugin/plugin.json").read_text(encoding="utf-8"))["version"]
+          packet = json.loads(Path("submission/reviewer-packet.json").read_text(encoding="utf-8"))["source"]["version"]
+
+          match = re.search(r"^## \[([^\]]+)\]", Path("CHANGELOG.md").read_text(encoding="utf-8"), re.MULTILINE)
+          changelog = match.group(1) if match else None
+
+          values = {"plugin.json": manifest, "reviewer-packet.json": packet, "CHANGELOG.md": changelog}
+          if len(set(values.values())) != 1:
+              print("version mismatch:")
+              for name, value in values.items():
+                  print(f"  {name}: {value}")
+              sys.exit(1)
+          print(f"version consistent: {manifest}")
+          PY
+
+      - name: Verify plugin package evidence
+        run: python scripts/verify_evidence.py
+
       - name: Guard against obvious committed secrets
         shell: bash
         run: |
-          if grep -RInE --exclude-dir=.git --exclude='*.md' '(BEGIN (RSA|OPENSSH|EC) PRIVATE KEY|AKIA[0-9A-Z]{16}|sk-[A-Za-z0-9]{20,})' .; then
+          if grep -RInE --exclude-dir=.git --exclude-dir=dist --exclude='*.zip' '(BEGIN (RSA|OPENSSH|EC) PRIVATE KEY|AKIA[0-9A-Z]{16}|sk-[A-Za-z0-9]{20,})' .; then
             echo 'Potential secret detected.' >&2
             exit 1
           fi

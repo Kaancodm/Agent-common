@@ -1,0 +1,6 @@
+# Normalize line endings so checkouts, CI, and the package build agree on all hosts.
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.zip binary
