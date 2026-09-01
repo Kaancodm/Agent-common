@@ -1,0 +1,6 @@
+{
+  "buildCommand": "echo 'No build required'",
+  "installCommand": "echo 'No install required'",
+  "outputDirectory": "public",
+  "framework": "other"
+}

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agent Common | Framework-Agnostic Agent Specification</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background: #fafafa;
+    }
+    header {
+      background: white;
+      border-bottom: 1px solid #e5e5e5;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo { font-size: 1.5rem; font-weight: 700; }
+    nav a {
+      margin-left: 2rem;
+      text-decoration: none;
+      color: #666;
+      font-size: 0.95rem;
+    }
+    nav a:hover { color: #000; }
+    .hero {
+      background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+      padding: 6rem 2rem;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #000;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      padding: 0.8rem 2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .btn-primary {
+      background: #000;
+      color: white;
+    }
+    .btn-primary:hover { background: #333; }
+    .btn-secondary {
+      background: white;
+      color: #000;
+      border: 1px solid #ddd;
+    }
+    .btn-secondary:hover {
+      border-color: #000;
+      background: #f5f5f5;
+    }
+    .features {
+      max-width: 1200px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+    }
+    .features h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 3rem;
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .feature-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      border: 1px solid #e5e5e5;
+    }
+    .feature-card h3 {
+      margin-bottom: 0.5rem;
+      color: #000;
+    }
+    .feature-card p {
+      color: #666;
+      font-size: 0.95rem;
+    }
+    .section {
+      max-width: 1200px;
+      margin: 4rem auto;
+      padding: 3rem 2rem;
+      background: white;
+      border-radius: 8px;
+    }
+    .section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+    .section p {
+      color: #666;
+      margin-bottom: 1rem;
+    }
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .link-item {
+      padding: 1rem;
+      background: #f5f5f5;
+      border-radius: 6px;
+      text-decoration: none;
+      color: #000;
+      transition: background 0.3s;
+    }
+    .link-item:hover { background: #e5e5e5; }
+    footer {
+      background: #1a1a1a;
+      color: white;
+      padding: 3rem 2rem;
+      margin-top: 4rem;
+    }
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    .footer-section h4 {
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .footer-section a {
+      display: block;
+      color: #aaa;
+      text-decoration: none;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+    }
+    .footer-section a:hover { color: white; }
+    .footer-bottom {
+      text-align: center;
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid #333;
+      color: #666;
+      font-size: 0.85rem;
+    }
+    .version-badge {
+      display: inline-block;
+      background: #f0f0f0;
+      color: #666;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      margin-left: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">🤖 Agent Common</div>
+    <nav>
+      <a href="#docs">Docs</a>
+      <a href="https://github.com/Kaancodm/Agent-common" target="_blank">GitHub</a>
+      <a href="#support">Support</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Agent Common <span class="version-badge">v0.1.0-beta.1</span></h1>
+    <p>A framework-agnostic specification for defining and orchestrating agents across platforms and runtimes.</p>
+    <div class="cta-buttons">
+      <a href="https://github.com/Kaancodm/Agent-common" class="btn btn-primary" target="_blank">View on GitHub</a>
+      <a href="https://github.com/Kaancodm/Agent-common#getting-started" class="btn btn-secondary" target="_blank">Get Started</a>
+    </div>
+  </section>
+
+  <section class="features">
+    <h2>Why Agent Common?</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h3>Framework-Agnostic</h3>
+        <p>Define agents once, deploy anywhere. No vendor lock-in, no runtime dependencies.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Security-First</h3>
+        <p>Built-in approval gates, permission boundaries, and handoff verification.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Specification-Based</h3>
+        <p>Pure Markdown + JSON + YAML. No build process, no runtime overhead.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Composable Skills</h3>
+        <p>Reusable skill templates for common tasks. Mix and match in your workflows.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Observable Workflows</h3>
+        <p>Traceable handoffs, clear decision points, explicit completion criteria.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Plugin-Ready</h3>
+        <p>Publish to ChatGPT, LLM platforms, and AI marketplaces with built-in manifest.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="docs">
+    <h2>Documentation</h2>
+    <p>Everything you need to get started with Agent Common:</p>
+    <div class="links-grid">
+      <a href="https://github.com/Kaancodm/Agent-common/blob/main/README.md" class="link-item" target="_blank">📖 README</a>
+      <a href="https://github.com/Kaancodm/Agent-common/tree/main/docs" class="link-item" target="_blank">📚 Architecture</a>
+      <a href="https://github.com/Kaancodm/Agent-common/blob/main/AGENTS.md" class="link-item" target="_blank">🤖 Agent Guide</a>
+      <a href="https://github.com/Kaancodm/Agent-common/tree/main/skills" class="link-item" target="_blank">🛠️ Skills</a>
+      <a href="https://github.com/Kaancodm/Agent-common/tree/main/workflows" class="link-item" target="_blank">⚙️ Workflows</a>
+      <a href="https://github.com/Kaancodm/Agent-common/blob/main/CONTRIBUTING.md" class="link-item" target="_blank">🤝 Contributing</a>
+    </div>
+  </section>
+
+  <section class="section" id="support">
+    <h2>Support & Community</h2>
+    <p>Get help, report issues, and connect with other developers.</p>
+    <div class="links-grid">
+      <a href="https://github.com/Kaancodm/Agent-common/issues" class="link-item" target="_blank">🐛 Report Issues</a>
+      <a href="https://github.com/Kaancodm/Agent-common/discussions" class="link-item" target="_blank">💬 Discussions</a>
+      <a href="https://github.com/Kaancodm/Agent-common/blob/main/SUPPORT.md" class="link-item" target="_blank">❓ FAQ</a>
+      <a href="https://github.com/Kaancodm/Agent-common/security" class="link-item" target="_blank">🔒 Security</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Product</h4>
+        <a href="https://github.com/Kaancodm/Agent-common" target="_blank">Repository</a>
+        <a href="https://github.com/Kaancodm/Agent-common/releases/tag/v0.1.0-beta.1" target="_blank">Release Notes</a>
+        <a href="https://github.com/Kaancodm/Agent-common/blob/main/CHANGELOG.md" target="_blank">Changelog</a>
+      </div>
+      <div class="footer-section">
+        <h4>Community</h4>
+        <a href="https://github.com/Kaancodm/Agent-common/issues" target="_blank">Issues</a>
+        <a href="https://github.com/Kaancodm/Agent-common/discussions" target="_blank">Discussions</a>
+        <a href="https://github.com/Kaancodm/Agent-common/blob/main/CONTRIBUTING.md" target="_blank">Contributing</a>
+      </div>
+      <div class="footer-section">
+        <h4>Legal</h4>
+        <a href="https://github.com/Kaancodm/Agent-common/blob/main/LICENSE" target="_blank">License (MIT)</a>
+        <a href="/privacy.md" target="_blank">Privacy</a>
+        <a href="/terms.md" target="_blank">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Kaancodm. All rights reserved. | Agent Common is licensed under the MIT License.</p>
+    </div>
+  </footer>
+</body>
+</html>
