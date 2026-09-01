@@ -1,36 +1,39 @@
-# Agent-Definitionen
+# Agent definitions
 
-Unter `agents/` liegen fachliche Rollen. Eine Agent-Definition erklärt, wofür ein Agent zuständig ist und woran ein gutes Ergebnis erkennbar ist.
+Under `agents/` are domain roles. An agent definition explains what an agent is responsible
+for and how a good result is recognized.
 
-## Wann eine neue Definition sinnvoll ist
+## When a new definition makes sense
 
-Eine neue Definition ist sinnvoll, wenn eine Rolle:
+A new definition makes sense when a role:
 
-- einen wiederkehrenden Auftrag hat,
-- eigene Eingaben, Entscheidungen oder Ausgaben besitzt,
-- von anderen Rollen getrennt getestet oder ersetzt werden kann.
+- has a recurring assignment,
+- has its own inputs, decisions, or outputs,
+- can be tested or replaced separately from other roles.
 
-Für eine einzelne einmalige Aufgabe genügt meist ein Workflow-Schritt oder eine kurze Aufgabenbeschreibung.
+For a single one-off task, a workflow step or a short task description is usually enough.
 
-## Mindestinhalt
+## Minimum content
 
-Jede Agent-Definition sollte enthalten:
+Every agent definition should contain:
 
-- Name und Zweck,
-- Verantwortungsbereich und klare Nicht-Zuständigkeiten,
-- erwartete Eingaben,
-- erwartete Ausgaben,
-- Arbeitsablauf,
-- verfügbare Werkzeuge oder Quellen,
-- Sicherheits- und Berechtigungsgrenzen,
-- Erfolgskriterien und Eskalationsfälle.
+- name and purpose,
+- responsibility area and clear non-responsibilities,
+- expected inputs,
+- expected outputs,
+- workflow,
+- available tools or sources,
+- security and permission boundaries,
+- success criteria and escalation cases.
 
-Nutze [agent-template.md](agent-template.md) als Ausgangspunkt.
+Use [agent-template.md](agent-template.md) as a starting point.
 
-## Namenskonvention
+## Naming convention
 
-Dateien werden in Kleinbuchstaben mit Bindestrichen benannt, zum Beispiel `research-agent.md` oder `review-agent.md`. Der Dateiname beschreibt die Rolle, nicht das verwendete Modell oder den Anbieter.
+Files are named in lowercase with hyphens, for example `research-agent.md` or
+`review-agent.md`. The file name describes the role, not the model or vendor used.
 
-## Abgrenzung
+## Distinctions
 
-Agenten sind Rollen. Wiederverwendbare Fähigkeiten gehören nach [../skills/README.md](../skills/README.md). Die Verbindung mehrerer Rollen gehört nach [../workflows/README.md](../workflows/README.md).
+Agents are roles. Reusable capabilities belong in [../docs/skills.md](../docs/skills.md).
+Connecting multiple roles belongs in [../workflows/README.md](../workflows/README.md).

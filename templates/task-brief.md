@@ -1,35 +1,35 @@
-# Aufgaben-Brief: [Kurztitel]
+# Task brief: [short title]
 
-## Ziel
+## Goal
 
-[Welches Ergebnis soll erreicht werden?]
+[Which result should be achieved?]
 
-## Gewuenschtes Ergebnis
+## Desired result
 
-[Konkretes Format, Datei, Entscheidung oder funktionsfaehiges Verhalten]
+[Concrete format, file, decision, or working behavior]
 
-## Kontext und Quellen
+## Context and sources
 
-- [Relevante Datei, Link, Notiz oder Entscheidung]
+- [Relevant file, link, note, or decision]
 
 ## Scope
 
-Enthalten:
+Included:
 
-- [Was bearbeitet werden soll]
+- [What should be worked on]
 
-Nicht enthalten:
+Not included:
 
-- [Was bewusst ausserhalb der Aufgabe bleibt]
+- [What deliberately stays outside the task]
 
-## Anforderungen
+## Requirements
 
-- [Muss-Kriterium]
+- [Must-have criterion]
 
-## Abnahme
+## Acceptance
 
-- [Pruefbares Erfolgskriterium]
+- [Checkable success criterion]
 
-## Annahmen und offene Punkte
+## Assumptions and open points
 
-- [Annahme oder noch zu klaerende Entscheidung]
+- [Assumption or decision still to be clarified]

@@ -1,5 +1,10 @@
-# Brand-Rationale
+# Brand Rationale
 
-Das Zeichen fuehrt mehrere offene Arbeitslinien in einen klaren Haken. Es steht damit fuer die Kernleistung von Agent Common: unterschiedliche allgemeine Aufgaben aufnehmen, ordnen und bis zu einem geprueften Ergebnis abschliessen.
+The mark leads several open work lines into one clear hook. It thus stands for the core value
+of Agent Common: take in different general tasks, order them, and finish them to a verified
+result.
 
-Die drei breiten Linien bleiben auch bei kleiner Darstellung lesbar. Licht- und Dunkelvariante nutzen dieselbe Geometrie mit kontrastreichen Blauwerten. Das Composer-Icon reduziert die Darstellung auf zwei Eingangslinien und den Abschluss-Haken, damit der Zweck auch bei 32 Pixeln erkennbar bleibt. Die SVGs enthalten keine Schriften, externen Ressourcen, Skripte oder Effekte.
+The three broad lines stay legible even at small sizes. The light and dark variants use the
+same geometry with high-contrast blues. The composer icon reduces the mark to two entry lines
+and the closing hook, so the purpose stays recognizable at 32 pixels. The SVGs contain no
+fonts, external resources, scripts, or effects.

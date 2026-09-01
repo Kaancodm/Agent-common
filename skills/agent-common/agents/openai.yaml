@@ -1,6 +1,6 @@
 interface:
   display_name: "Agent Common"
-  short_description: "Allgemeine Aufgaben verlaesslich umsetzen"
-  default_prompt: "Bearbeite diese Aufgabe eigenstaendig bis zu einem nutzbaren und geprueften Ergebnis."
+  short_description: "Deliver general project tasks"
+  default_prompt: "Work this task independently through to a usable and verified result."
 policy:
   allow_implicit_invocation: true

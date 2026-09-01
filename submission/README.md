@@ -1,12 +1,11 @@
 # Submission Evidence
 
-Dieses Verzeichnis enthaelt repository-interne Evidenz fuer die Vorbereitung
-einer moeglichen Plugin-Directory-Einreichung. Die Dateien sind kein
-OpenAI-Uploadformat und belegen weder Einreichung noch Freigabe.
+This directory contains repository-internal evidence for preparing a possible plugin-directory
+submission. The files are not an OpenAI upload format and prove neither submission nor
+approval.
 
-- `listing.json`: exakte Listing-Felder und bekannte fehlende Portalangaben
-- `reviewer-packet.json`: Skills, Grenzen, Golden Prompts und Reviewer-Faelle
+- `listing.json`: exact listing fields and known missing portal entries
+- `reviewer-packet.json`: skills, boundaries, golden prompts, and reviewer cases
 
-Aktueller Status: `not_ready`. Es fehlen oeffentliche Website-, Support-,
-Privacy- und Terms-URLs, die Bestaetigung der Publisher-Verifikation in der
-OpenAI Platform und eine Country-/Region-Auswahl.
+Current status: `not_ready`. Missing: public website, support, privacy, and terms URLs;
+confirmation of publisher verification in the OpenAI Platform; and a country/region selection.

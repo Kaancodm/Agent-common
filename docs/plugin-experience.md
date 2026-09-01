@@ -1,40 +1,48 @@
 # Plugin Experience Brief
 
-## Produktgrenze
+## Product boundary
 
-- Zielgruppe: Personen und Teams mit wechselnden allgemeinen Projektaufgaben.
-- Wiederkehrender Job: Einen Auftrag mit vorhandenem Kontext eigenstaendig in ein nutzbares, geprueftes Ergebnis ueberfuehren.
-- Architektur: `skills-only`; keine App, kein MCP-Server und keine externe Runtime erforderlich.
-- Oeffentlicher Fach-Skill: `agent-common`.
-- Baseline-Skill: `host-workspace-operator` fuer sichere, host-native Datei- und Repository-Arbeit.
-- Ausgeschlossen: Deployment, Publikation, externe Kommunikation, Zugangsdatenverwaltung und irreversible Aktionen ohne gesonderten Auftrag.
+- Audience: individuals and teams with changing general project tasks.
+- Recurring job: take an assignment with existing context to a usable, verified result
+  independently.
+- Architecture: `skills-only`; no app, no MCP server, and no external runtime required.
+- Public domain skill: `agent-common`.
+- Baseline skill: `host-workspace-operator` for safe, host-native file and repository work.
+- Excluded: deployment, publication, external communication, credential management, and
+  irreversible actions without a separate assignment.
 
-## Kandidatenentscheidungen
+## Candidate decisions
 
-| Quelle | Entscheidung | Begruendung |
+| Source | Decision | Rationale |
 | --- | --- | --- |
-| `prompts/agent-common.md` | `compile_skill` | Enthaelt den wiederverwendbaren Ablauf vom Auftrag bis zur Uebergabe. |
-| `AGENTS.md` | `reference_only` | Liefert Repository-Regeln, wird aber nicht als nahezu identischer zweiter Skill veroeffentlicht. |
+| `prompts/agent-common.md` | `compile_skill` | Contains the reusable flow from assignment to handoff. |
+| `AGENTS.md` | `reference_only` | Provides repository rules but is not published as a near-identical second skill. |
 
-## Host-Workspace-Profil
+## Host workspace profile
 
-| Operation | Einstufung |
+| Operation | Classification |
 | --- | --- |
-| read, list, search, grep | preferred fuer die Bestandsaufnahme |
-| write, patch | mutation; nur bei beauftragter Aenderung |
-| shell | optional; mutation bei zustandsaendernden Befehlen |
-| python | optional fuer deterministische Verarbeitung und Verifikation |
+| read, list, search, grep | preferred for taking stock |
+| write, patch | mutation; only for an assigned change |
+| shell | optional; mutation for state-changing commands |
+| python | optional for deterministic processing and verification |
 
-Der Plugin gewaehrt diese Faehigkeiten nicht. Er nutzt sie nur, wenn der jeweilige Host sie bereitstellt.
+The plugin does not grant these capabilities. It only uses them when the host provides them.
 
-## Discovery-Grenzen
+## Discovery boundaries
 
-- Direkter Trigger: Allgemeine Aufgabe strukturieren und umsetzen.
-- Indirekter Trigger: Vorhandenen Projektkontext auswerten und den naechsten belastbaren Stand liefern.
-- Negativer Trigger: Eine spezialisierte Sicherheits-, Rechts-, Medizin- oder Finanzaufgabe, fuer die ein engerer Fach-Workflow erforderlich ist.
+- Direct trigger: structure and implement a general task.
+- Indirect trigger: evaluate existing project context and deliver the next reliable state.
+- Negative trigger: a specialized security, legal, medical, or financial task that needs a
+  narrower domain workflow.
 
 ## Status
 
-Die Konfiguration ist fuer lokale Validierung vorbereitet. Als Projekt-Publisher ist der verbundene GitHub-Account `Kaancodm` hinterlegt. Listing-Pack und Reviewer-Evidenz liegen unter `submission/` vor. Eine oeffentliche Einreichung ist weiterhin nicht freigegeben und bleibt ohne erforderliche URLs und eine gegebenenfalls zusaetzlich verlangte Marketplace-Verifikation bewusst ausserhalb des Scopes.
+The configuration is prepared for local validation. The connected GitHub account `Kaancodm`
+is recorded as the project publisher. The listing pack and reviewer evidence are under
+`submission/`. A public submission is still not in scope and deliberately stays out of scope
+without the required URLs and any additionally required marketplace verification.
 
-Das lokale Brand-Pack ist vorhanden. Website-, Support-, Datenschutz- und AGB-URLs fehlen weiterhin. Die Publisher-Verifikation in der OpenAI Platform und die Country-/Region-Auswahl sind nicht bestaetigt.
+The local brand pack is present. Website, support, privacy, and terms URLs are still missing.
+Publisher verification in the OpenAI Platform and the country/region selection are not
+confirmed.

@@ -1,7 +1,7 @@
 {
   "name": "Agent Common",
-  "subtitle": "Allgemeine Aufgaben umsetzen",
-  "description": "Agent Common strukturiert und bearbeitet allgemeine Projektaufgaben von der Zielklaerung bis zum geprueften Ergebnis. Das skills-only Plugin nutzt vorhandene Dateien und Quellen, trifft sichere reversible Annahmen, wahrt klare Grenzen fuer Aenderungen und externe Aktionen und dokumentiert Umsetzung, Pruefung sowie verbleibende offene Punkte.",
+  "subtitle": "Deliver general project tasks",
+  "description": "Agent Common structures and handles general project tasks from goal clarification to a verified result. The skills-only plugin uses existing files and sources, makes safe reversible assumptions, keeps clear boundaries for changes and external actions, and documents the implementation, the checks performed, and the remaining open points.",
   "category": "Productivity",
   "developerName": "Kaancodm",
   "websiteURL": null,
@@ -11,17 +11,17 @@
   "version": "0.1.0",
   "packageName": "agent-common",
   "capabilities": [
-    "Allgemeine Projektaufgaben strukturiert umsetzen",
-    "Vorhandene Dateien und Quellen kontextbezogen auswerten",
-    "Autorisierte Aenderungen fokussiert umsetzen und pruefen"
+    "Work general project tasks in a structured way",
+    "Evaluate existing files and sources in context",
+    "Implement and check authorized changes with focus"
   ],
   "starterPrompts": [
-    "Bearbeite diese Aufgabe eigenstaendig bis zu einem nutzbaren Ergebnis.",
-    "Strukturiere diesen Auftrag und setze die erforderlichen Aenderungen um.",
-    "Pruefe den vorhandenen Projektkontext und liefere den naechsten belastbaren Stand."
+    "Work this task independently through to a usable result.",
+    "Structure this assignment and make the necessary changes.",
+    "Review the existing project context and deliver the next reliable state."
   ],
   "brand": {
-    "concept": "Mehrere offene Arbeitslinien laufen in einem klaren Abschluss-Haken zusammen.",
+    "concept": "Several open work lines converge into one clear closing hook.",
     "lightLogo": "./assets/logo-light.svg",
     "darkLogo": "./assets/logo-dark.svg",
     "composerIcon": "./assets/composer-icon.svg"

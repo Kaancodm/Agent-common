@@ -1,32 +1,36 @@
 # Workflows
 
-Workflows verbinden Agenten und Skills zu einem nachvollziehbaren Ablauf. Sie beschreiben nicht nur die Reihenfolge, sondern auch Übergaben, Entscheidungen und Abschlussbedingungen.
+Workflows connect agents and skills into a traceable flow. They describe not only the order
+but also the handoffs, decisions, and completion conditions.
 
-## Mindestinhalt
+## Minimum content
 
-Jeder Workflow sollte dokumentieren:
+Every workflow should document:
 
-- Ziel und Auslöser,
-- beteiligte Agenten und Skills,
-- Eingaben und erwartete Endausgabe,
-- Schritte mit klaren Übergaben,
-- Bedingungen für Rückfragen, Abbruch oder Eskalation,
-- Sicherheits- und Berechtigungsgrenzen,
-- Erfolgskriterien und Verifikation.
+- goal and trigger,
+- participating agents and skills,
+- inputs and expected final output,
+- steps with clear handoffs,
+- conditions for asking back, aborting, or escalating,
+- security and permission boundaries,
+- success criteria and verification.
 
-## Empfohlener Ablauf
+## Recommended flow
 
 ```text
-Eingabe
-  -> Kontext und Berechtigungen prüfen
-  -> Aufgabe in überprüfbare Schritte zerlegen
-  -> passenden Agenten/Skill ausführen
-  -> Ergebnis prüfen
-  -> Ergebnis, Annahmen und offene Punkte ausgeben
+Input
+  -> check context and permissions
+  -> break the task into checkable steps
+  -> run the matching agent/skill
+  -> check the result
+  -> return result, assumptions, and open points
 ```
 
-## Konventionen
+## Conventions
 
-Workflows werden in Kleinbuchstaben mit Bindestrichen benannt. Ein Workflow darf keine Zugangsdaten voraussetzen, die nicht als sichere Laufzeitkonfiguration beschrieben sind. Externe oder irreversible Aktionen müssen explizit markiert sein und eine passende Bestätigung oder Berechtigung verlangen.
+Workflows are named in lowercase with hyphens. A workflow must not assume credentials that
+are not described as secure runtime configuration. External or irreversible actions must be
+explicitly marked and require a matching confirmation or permission.
 
-Wenn ein Workflow wiederkehrende Schritte enthält, gehören diese Schritte in einen Skill statt als Kopie in mehrere Workflows.
+If a workflow contains recurring steps, those steps belong in a skill rather than being
+copied into multiple workflows.
