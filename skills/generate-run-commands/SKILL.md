@@ -1,3 +1,8 @@
+---
+name: generate-run-commands
+description: Produce the most targeted, appropriate CLI command or build/test invocation for a given task based on project tooling and configuration.
+---
+
 # Generate Run Commands
 
 ## Purpose
