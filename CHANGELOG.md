@@ -42,6 +42,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   and the displayed version tracks `0.1.0-beta.2`.
 - CI additionally runs `scripts/check_release_readiness.py`.
 
+### Fixed
+
+- `vercel.json`: `framework` was the string `"other"`, which is not a valid Vercel framework
+  slug (the dashboard's "Other" is stored as `null`). Both connected Vercel projects failed
+  to deploy from the commit that introduced the file onwards. `buildCommand` and
+  `installCommand` are now `null` — the documented way to skip those steps for a
+  pre-built static directory — instead of no-op `echo` commands.
+
 ---
 
 ## [0.1.0-beta.1] - 2026-09-01
