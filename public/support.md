@@ -5,7 +5,7 @@
 ## Getting Help
 
 ### Documentation
-Start with the [README](README.md) and the [docs/](docs/) directory for:
+Start with the [README](https://github.com/Kaancodm/Agent-common/blob/main/README.md) and the [docs/](https://github.com/Kaancodm/Agent-common/tree/main/docs) directory for:
 - Architecture and design philosophy
 - Security model and approval gates
 - Skill conventions and agent contracts
@@ -14,10 +14,10 @@ Start with the [README](README.md) and the [docs/](docs/) directory for:
 ### Common Questions
 
 **Q: How do I use Agent Common for my project?**
-A: Read [AGENTS.md](AGENTS.md) for the working rules, then copy templates from `agents/`, `skills/`, and `workflows/` directories for your use case.
+A: Read [AGENTS.md](https://github.com/Kaancodm/Agent-common/blob/main/AGENTS.md) for the working rules, then copy templates from `agents/`, `skills/`, and `workflows/` directories for your use case.
 
 **Q: Can I modify Agent Common?**
-A: Yes. It's licensed under MIT. See [TERMS.md](TERMS.md) and [LICENSE](LICENSE).
+A: Yes. It's licensed under MIT. See [Terms of Service](terms.md) and [LICENSE](https://github.com/Kaancodm/Agent-common/blob/main/LICENSE).
 
 **Q: How do I report a bug?**
 A: Open an issue on GitHub with a clear description, steps to reproduce, and expected vs. actual behavior.
@@ -26,7 +26,7 @@ A: Open an issue on GitHub with a clear description, steps to reproduce, and exp
 A: Open a GitHub issue labeled `enhancement`. Describe the use case and why it matters.
 
 **Q: Can I contribute?**
-A: Absolutely. Read [CONTRIBUTING.md](CONTRIBUTING.md) for the process. Contributions must:
+A: Absolutely. Read [CONTRIBUTING.md](https://github.com/Kaancodm/Agent-common/blob/main/CONTRIBUTING.md) for the process. Contributions must:
 - Serve a recurring use case
 - Follow existing templates and conventions
 - Introduce no unnecessary complexity or vendor dependency
@@ -67,7 +67,7 @@ Open an issue with the exact path/link and we'll fix it.
 
 ## Status & Roadmap
 
-**Current version**: 0.1.0-beta.1
+**Current version**: 0.1.0-beta.2
 
 **Beta release status**: The specification is stable for testing. Feedback is welcome. Expected timeline for 0.1.0 release: Q3 2026.
 
@@ -83,4 +83,4 @@ We are committed to a welcoming, inclusive community. Be respectful, constructiv
 
 ## License
 
-Agent Common is licensed under the **MIT License**. See [LICENSE](LICENSE) for details.
+Agent Common is licensed under the **MIT License**. See [LICENSE](https://github.com/Kaancodm/Agent-common/blob/main/LICENSE) for details.

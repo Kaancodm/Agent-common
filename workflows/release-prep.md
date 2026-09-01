@@ -12,7 +12,8 @@ forgotten, but they cannot be automated here.
 Use this workflow when:
 
 - a version milestone has been reached and all intended changes are merged to `main`;
-- `submission/listing.json` URLs are ready (non-null) for a public submission;
+- for a public submission only: `submission/listing.json` URLs are ready (non-null).
+  A beta or other internal release does not require them;
 - a maintainer has decided to promote the beta to a stable release or to cut a new beta.
 
 Do not start release preparation while open bugs or incomplete features are expected to land
@@ -43,6 +44,9 @@ Verify:
 - no known blocking defects remain open;
 - the maintainer has confirmed the version number.
 
+`python scripts/check_release_readiness.py` reports the mechanical part of this and of
+steps 2–4 in one command. Use `--public` to also require the listing URLs.
+
 Exit condition: version number is decided and `main` is green.
 
 ### 2. In-repository version bumps
@@ -62,12 +66,14 @@ Exit condition: all three files consistently name the new version.
 
 ### 3. Rebuild and update evidence
 
-Run `python scripts/verify_evidence.py --update` to rebuild the plugin package
-deterministically and refresh `submission/reviewer-packet.json` with the current package
-hash and file list.
+Commit the step-2 version bumps **first**, so the package is built from a clean working
+tree as the security boundary below requires. Then run
+`python scripts/verify_evidence.py --update` to rebuild the plugin package deterministically
+and refresh `submission/reviewer-packet.json` with the current package hash and file list,
+and commit that refreshed evidence as a separate commit.
 
-Commit the result. The evidence file should record no commit SHA (a file cannot contain the
-hash of the commit that introduces it).
+The evidence file records no commit SHA (a file cannot contain the hash of the commit that
+introduces it).
 
 Exit condition: `python scripts/verify_evidence.py` passes without `--update` on a clean
 working tree.
@@ -108,13 +114,23 @@ Exit condition: review approved.
 The following actions require maintainer execution. They are gated by `policy/approval-policy.json`
 under the `production` and `external_communication` categories:
 
-1. **Create the Git tag**: `git tag -a v<version> -m "Release <version>"`.
-2. **Push the tag**: `git push origin v<version>`.
-3. **Create the GitHub Release**: publish the release notes from the CHANGELOG section.
-4. **OpenAI Platform publisher verification**: complete the verification flow in the OpenAI
+1. **Merge the release preparation into `main`.** Steps 2–4 are prepared on a branch, so
+   the version, evidence, and listing changes are not on `main` until this merge lands.
+   Tagging before it would point the tag at an unmerged commit while `main` still carries
+   the previous release.
+2. **Verify the tag target.** Check out `main`, pull, and confirm the release commit is
+   present (`git log --oneline -1` shows the merged preparation) and that
+   `python scripts/check_release_readiness.py` passes there.
+3. **Create the Git tag on that commit**: `git tag -a v<version> -m "Release <version>"`.
+4. **Push the tag**: `git push origin v<version>`. This triggers
+   `.github/workflows/release.yml`, which rebuilds the package, re-verifies the evidence
+   against the tag, and publishes the GitHub Release with the CHANGELOG section as notes
+   and the `dist/` zip attached.
+5. **OpenAI Platform publisher verification**: complete the verification flow in the OpenAI
    Platform if not already done.
-5. **Submit the plugin**: upload the package from `dist/` and the listing metadata.
-6. **Country/region selection**: choose availability in the OpenAI plugin store.
+6. **Submit the plugin**: upload the package attached to the GitHub Release and the listing
+   metadata.
+7. **Country/region selection**: choose availability in the OpenAI plugin store.
 
 No agent acts on behalf of the publisher for these steps.
 
@@ -138,10 +154,12 @@ Record the completed state:
 
 ## Success criteria
 
+- [ ] `python scripts/check_release_readiness.py` passes (covers the three items below).
 - [ ] Version strings are consistent across `plugin.json`, `reviewer-packet.json`, and `CHANGELOG.md`.
 - [ ] Evidence is rebuilt and `verify_evidence.py` passes on a clean working tree.
 - [ ] Listing URLs are non-null and reachable (public submission only).
 - [ ] Independent review approved.
+- [ ] Release preparation is merged to `main` and the tag points at that commit.
 - [ ] Git tag and GitHub Release exist.
 - [ ] Plugin submission completed (public submission only).
 - [ ] Handoff is complete.

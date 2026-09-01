@@ -135,11 +135,10 @@
     "required": true,
     "status": "not-confirmed-in-openai-platform"
   },
+  "resolved": [
+    "websiteURL, customerSupportURL, privacyPolicyURL, and termsOfServiceURL are now served from the public site under public/ and recorded in submission/listing.json"
+  ],
   "missing": [
-    "websiteURL",
-    "customerSupportURL",
-    "privacyPolicyURL",
-    "termsOfServiceURL",
     "OpenAI developer or business verification confirmation",
     "country or region availability selection"
   ],
