@@ -4,7 +4,7 @@
 
 ## 1. License
 
-Agent Common is licensed under the **MIT License**. By using this project, you agree to the terms of the MIT License as detailed in the [LICENSE](LICENSE) file.
+Agent Common is licensed under the **MIT License**. By using this project, you agree to the terms of the MIT License as detailed in the [LICENSE](https://github.com/Kaancodm/Agent-common/blob/main/LICENSE) file.
 
 **Summary**: You are free to use, modify, and distribute this software, provided you include the license and copyright notice.
 

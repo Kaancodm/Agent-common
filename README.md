@@ -24,13 +24,16 @@ Concrete integrations can be added later without restructuring the domain defini
 │   ├── README.md                   # Conventions for agent definitions
 │   ├── agent-template.md           # Copyable template for new agents
 │   ├── orchestrator-agent.md       # Coordinates a multi-step change to verified handoff
-│   └── review-agent.md             # Independently assesses a change and its evidence
+│   ├── review-agent.md             # Independently assesses a change and its evidence
+│   └── debug-agent.md              # Diagnoses failures and traces root causes
 ├── skills/
 │   ├── agent-common/               # General end-to-end working skill
 │   └── host-workspace-operator/    # Safe host-native workspace operations
 ├── workflows/
 │   ├── README.md                   # Conventions for agent workflows
-│   └── change-delivery.md          # Intake → review → approval → handoff workflow
+│   ├── change-delivery.md          # Intake → review → approval → handoff workflow
+│   ├── bug-fix.md                  # Report → diagnose → fix → verify → review workflow
+│   └── release-prep.md             # Version bump → evidence → tag → submission workflow
 ├── prompts/
 │   └── agent-common.md             # Ready-to-use project prompt
 ├── templates/
@@ -41,12 +44,15 @@ Concrete integrations can be added later without restructuring the domain defini
 │   └── approval-policy.json        # Human-approval gates for high-impact actions
 ├── scripts/
 │   ├── build_plugin_package.py     # Deterministic plugin-package build
-│   └── verify_evidence.py          # Rebuild + check submission evidence
+│   ├── verify_evidence.py          # Rebuild + check submission evidence
+│   └── check_release_readiness.py  # Executable release-prep gate
 ├── assets/                         # Brand assets (light/dark logo, composer icon)
+├── public/                         # Public site (website, support, privacy, terms)
 ├── submission/                     # Repository-maintained submission evidence
 ├── .codex-plugin/
 │   └── plugin.json                 # Manifest for the skills-only plugin
-├── .github/workflows/              # CI validation
+├── .github/workflows/              # CI validation and tag-driven release
+├── SECURITY.md                     # Vulnerability reporting policy
 └── docs/
     ├── architecture.md             # Architecture, lifecycle, and extension points
     ├── agent-contract.md           # What every reusable agent must declare
@@ -82,15 +88,18 @@ The bundled `skills-only` plugin provides the same flow in a Codex-compatible fo
 
 ## Status
 
-This is a `0.1.0-beta.1` pre-release. The repository contains the project foundation,
+This is a `0.1.0-beta.2` pre-release. The repository contains the project foundation,
 reusable agents and workflows, a locally verifiable `skills-only` plugin, brand assets, and
 a reproducible package build with matching evidence under [`submission/`](submission/).
 
-A public plugin submission is **not** in scope for this beta and is intentionally not
-released. The remaining steps are outside the repository and belong to the publisher:
+The public site under [`public/`](public/) now supplies the website, customer-support,
+privacy-policy, and terms-of-service URLs recorded in
+[`submission/listing.json`](submission/listing.json). Run
+`python scripts/check_release_readiness.py` to see the current gate status.
 
-- public website, customer-support, privacy-policy, and terms-of-service URLs
-  (currently `null` in [`submission/listing.json`](submission/listing.json)),
+A public plugin submission is still **not** released. The remaining steps are outside the
+repository and belong to the publisher:
+
 - publisher verification in the OpenAI Platform,
 - a country/region availability selection,
 - any additionally required marketplace verification.

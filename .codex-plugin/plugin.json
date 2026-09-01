@@ -1,6 +1,6 @@
 {
   "name": "agent-common",
-  "version": "0.1.0-beta.1",
+  "version": "0.1.0-beta.2",
   "description": "Works general project tasks pragmatically, precisely, and independently with clear assumptions, safe workspace work, and traceable verification.",
   "author": {
     "name": "Kaancodm"
