@@ -4,6 +4,11 @@
 Exit non-zero if the committed evidence does not match a fresh deterministic
 build, or if the recorded ``source.version`` disagrees with the plugin manifest.
 
+The evidence intentionally records no commit SHA: a file cannot contain the hash
+of the commit that introduces it, and any earlier SHA would name a tree whose
+payload differs from the one hashed here. Provenance is ``source.ref`` plus the
+deterministic hash; ``git log`` locates the commit that last touched the payload.
+
   python scripts/verify_evidence.py             # check only
   python scripts/verify_evidence.py --update    # rewrite the evidence from the build
 """
@@ -11,7 +16,6 @@ from __future__ import annotations
 
 import io
 import json
-import subprocess
 import sys
 import zipfile
 from pathlib import Path
@@ -22,19 +26,6 @@ MANIFEST_PATH = REPO_ROOT / ".codex-plugin" / "plugin.json"
 
 sys.path.insert(0, str(REPO_ROOT / "scripts"))
 import build_plugin_package as builder  # noqa: E402
-
-
-def git_head() -> str:
-    try:
-        out = subprocess.run(
-            ["git", "-C", str(REPO_ROOT), "rev-parse", "HEAD"],
-            capture_output=True,
-            text=True,
-            check=True,
-        )
-        return out.stdout.strip()
-    except (subprocess.CalledProcessError, FileNotFoundError):
-        return ""
 
 
 def reproduce() -> tuple[dict, int]:
@@ -72,9 +63,7 @@ def main() -> int:
         artifact["deterministicBuilds"] = builds
         artifact["extractedCopyValidated"] = True
         source["version"] = manifest_version
-        head = git_head()
-        if head:
-            source["commit"] = head
+        source.pop("commit", None)
         PACKET_PATH.write_text(
             json.dumps(packet, indent=2, ensure_ascii=False) + "\n",
             encoding="utf-8",

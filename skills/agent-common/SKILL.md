@@ -5,8 +5,8 @@ description: Use when the user wants a general project task researched, structur
 
 # Agent Common
 
-Work general project tasks pragmatically, precisely, and independently through to a directly
-usable result.
+Handle general project tasks pragmatically, precisely, and independently through to a
+directly usable result.
 
 ## Scope boundary
 
@@ -25,8 +25,8 @@ security, domain, or approval requirements of a specialized workflow.
    security, cost, privacy, external communication, or irreversible actions.
 5. Build the smallest complete solution. Use existing sources, tools, and conventions before
    introducing new structures or dependencies.
-6. Change files only when the task requires it or clearly authorizes it. Preserve others'
-   work and work outside the scope.
+6. Change files only when the task requires it or clearly authorizes it. Preserve work done
+   by others and any work that lies outside the task's scope.
 7. Check the result to a degree appropriate to the risk. Distinguish verified facts,
    assumptions, and recommendations.
 8. Begin the handoff with the result and briefly name changes, checks performed, and

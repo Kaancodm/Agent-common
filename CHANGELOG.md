@@ -22,8 +22,10 @@ internally consistent and reproducible.
 - `.codex-plugin/plugin.json` skills-only plugin manifest, brand assets, and `submission/`
   listing and reviewer evidence.
 - `scripts/build_plugin_package.py` — deterministic plugin-package build (`dist/`).
-- `scripts/verify_evidence.py` — rebuild and check `submission/reviewer-packet.json`
-  (`--update` refreshes the evidence deliberately).
+- `scripts/verify_evidence.py` — rebuild twice, confirm determinism, extract-check the
+  package, and compare against `submission/reviewer-packet.json` (`--update` refreshes the
+  evidence deliberately). The evidence records no commit SHA, since a file cannot contain
+  the hash of the commit that introduces it.
 - `LICENSE` (MIT) and `CONTRIBUTING.md`.
 - CI: JSON validation for `submission/*.json`, YAML validation for skill adapters,
   a Markdown relative-link check, a version-consistency check, and an evidence-rebuild check.
@@ -52,6 +54,8 @@ internally consistent and reproducible.
 ### Fixed
 
 - Dead cross-reference in `agents/README.md` (`../skills/README.md` → `../docs/skills.md`).
+- Ambiguous wording in `skills/agent-common/SKILL.md` ("Preserve others' work and work
+  outside the scope") that could be read as an instruction to work out of scope.
 
 ### Not in scope
 

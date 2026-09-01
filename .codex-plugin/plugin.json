@@ -9,7 +9,7 @@
   "interface": {
     "displayName": "Agent Common",
     "shortDescription": "Deliver general project tasks",
-    "longDescription": "Agent Common structures and works general project tasks from goal clarification to a verified result. The plugin skill uses existing files and sources, makes safe reversible assumptions, keeps clear boundaries for changes and external actions, and documents the implementation, the checks performed, and the remaining open points.",
+    "longDescription": "Agent Common structures and handles general project tasks from goal clarification to a verified result. The plugin skill uses existing files and sources, makes safe reversible assumptions, keeps clear boundaries for changes and external actions, and documents the implementation, the checks performed, and the remaining open points.",
     "developerName": "Kaancodm",
     "category": "Productivity",
     "logo": "./assets/logo-light.svg",
