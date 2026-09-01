@@ -41,6 +41,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   absolute GitHub URLs (they resolved to nothing from inside the deployed `public/` root),
   and the displayed version tracks `0.1.0-beta.2`.
 - CI additionally runs `scripts/check_release_readiness.py`.
+- `.github/workflows/validate-agent-common.yml` also accepts `workflow_dispatch`, so the
+  validation can be re-run manually when a push does not trigger it.
 
 ### Fixed
 
