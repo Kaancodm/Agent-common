@@ -5,6 +5,25 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.0-beta.2] - 2026-09-01
+
+### Added
+
+- `agents/debug-agent.md`: diagnosis role for tracing root causes and collecting evidence;
+  does not implement fixes.
+- `workflows/bug-fix.md`: focused defect workflow — report → reproduce → diagnose
+  (debug-agent) → fix → verify → review → handoff.
+- `workflows/release-prep.md`: publisher-side checklist for version bumps, evidence rebuild,
+  listing URL population, OpenAI Platform verification, tag and release creation.
+- `agents/README.md` and `workflows/README.md` now include a listing table of defined files.
+
+### Changed
+
+- `.codex-plugin/plugin.json` version → `0.1.0-beta.2`.
+- `submission/reviewer-packet.json` `source.version` → `0.1.0-beta.2`; release notes updated.
+
+---
+
 ## [0.1.0-beta.1] - 2026-09-01
 
 First tagged pre-release. Consolidates the initial foundation work and makes the repository

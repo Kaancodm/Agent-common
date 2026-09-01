@@ -28,6 +28,14 @@ Every agent definition should contain:
 
 Use [agent-template.md](agent-template.md) as a starting point.
 
+## Defined agents
+
+| File | Role |
+|---|---|
+| [orchestrator-agent.md](orchestrator-agent.md) | Coordinates a multi-step change to verified handoff |
+| [review-agent.md](review-agent.md) | Independently assesses a change and its evidence |
+| [debug-agent.md](debug-agent.md) | Diagnoses failures and traces root causes |
+
 ## Naming convention
 
 Files are named in lowercase with hyphens, for example `research-agent.md` or

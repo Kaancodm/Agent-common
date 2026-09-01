@@ -11,12 +11,12 @@
   "note": "Repository-maintained reviewer evidence. This is not an OpenAI upload schema and does not prove submission or approval.",
   "source": {
     "ref": "main",
-    "version": "0.1.0-beta.1",
+    "version": "0.1.0-beta.2",
     "architecture": "skills-only"
   },
   "artifact": {
     "scope": ".codex-plugin, assets and skills runtime payload",
-    "sha256": "6fa5c52e5d8625ce6b07e4a24735f88da79815342602b8e59e5ed0892e953176",
+    "sha256": "92232e938e769bba46f4032f2230bf1fc22b4d09f7862d21d519f915bca7b237",
     "bytes": 11725,
     "entries": 8,
     "deterministicBuilds": 2,
@@ -143,6 +143,6 @@
     "OpenAI developer or business verification confirmation",
     "country or region availability selection"
   ],
-  "releaseNotes": "Agent Common 0.1.0-beta.1 provides a reusable skills-only workflow for general project tasks plus safe host-native workspace operation guidance, brand assets, a deterministic package build with matching evidence, and explicit safety boundaries.",
+  "releaseNotes": "Agent Common 0.1.0-beta.2 adds a debug agent for root-cause diagnosis, a bug-fix workflow, and a release-preparation workflow to complement the existing orchestrator and review agents.",
   "status": "not_ready"
 }

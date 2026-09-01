@@ -34,3 +34,11 @@ explicitly marked and require a matching confirmation or permission.
 
 If a workflow contains recurring steps, those steps belong in a skill rather than being
 copied into multiple workflows.
+
+## Defined workflows
+
+| File | Purpose |
+|---|---|
+| [change-delivery.md](change-delivery.md) | Intake → review → approval → handoff for general changes |
+| [bug-fix.md](bug-fix.md) | Report → diagnose → fix → verify → review for defects |
+| [release-prep.md](release-prep.md) | Version bump → evidence rebuild → tag → submission |
