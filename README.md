@@ -1,83 +1,109 @@
 # Agent Common
 
-Eine schlanke, framework-unabhängige Grundlage für die Entwicklung, Dokumentation und Orchestrierung von Agenten.
+A lean, framework-agnostic foundation for developing, documenting, and orchestrating agents.
 
-## Ziel
+## Purpose
 
-Agent Common stellt gemeinsame Konventionen bereit, damit Agenten:
+Agent Common provides shared conventions so that agents:
 
-- klar abgegrenzte Aufgaben und Verantwortlichkeiten haben,
-- wiederverwendbare Skills nutzen,
-- in nachvollziehbaren Workflows zusammenspielen,
-- Annahmen, Quellen und Ergebnisse transparent dokumentieren,
-- sicher und mit möglichst wenig unnötiger Komplexität arbeiten.
+- have clearly bounded tasks and responsibilities,
+- reuse well-defined skills,
+- work together in traceable workflows,
+- document assumptions, sources, and results transparently,
+- operate securely and with as little unnecessary complexity as possible.
 
-Das Repository enthält bewusst noch keine Bindung an ein bestimmtes Modell, SDK oder Laufzeitsystem. Konkrete Integrationen können später ergänzt werden, ohne die fachlichen Definitionen neu zu strukturieren.
+The repository deliberately carries no binding to a particular model, SDK, or runtime yet.
+Concrete integrations can be added later without restructuring the domain definitions.
 
-## Struktur
+## Structure
 
 ```text
 .
-├── AGENTS.md                    # Arbeitsregeln für Agenten im Repository
+├── AGENTS.md                       # Working rules for agents in this repository
 ├── agents/
-│   ├── README.md                # Konventionen für Agent-Definitionen
-│   └── agent-template.md        # Kopierbare Vorlage für neue Agenten
+│   ├── README.md                   # Conventions for agent definitions
+│   ├── agent-template.md           # Copyable template for new agents
+│   ├── orchestrator-agent.md       # Coordinates a multi-step change to verified handoff
+│   └── review-agent.md             # Independently assesses a change and its evidence
 ├── skills/
-│   ├── agent-common/            # Allgemeiner End-to-End-Arbeits-Skill
-│   └── host-workspace-operator/ # Sichere host-native Workspace-Arbeit
+│   ├── agent-common/               # General end-to-end working skill
+│   └── host-workspace-operator/    # Safe host-native workspace operations
 ├── workflows/
-│   └── README.md                # Konventionen für Agent-Workflows
+│   ├── README.md                   # Conventions for agent workflows
+│   └── change-delivery.md          # Intake → review → approval → handoff workflow
 ├── prompts/
-│   └── agent-common.md          # Direkt nutzbarer Projektprompt
+│   └── agent-common.md             # Ready-to-use project prompt
 ├── templates/
-│   └── task-brief.md            # Vorlage für konkrete Aufgaben
+│   └── task-brief.md               # Template for concrete tasks
+├── schemas/
+│   └── handoff.schema.json         # Machine-readable handoff contract
+├── policy/
+│   └── approval-policy.json        # Human-approval gates for high-impact actions
+├── scripts/
+│   ├── build_plugin_package.py     # Deterministic plugin-package build
+│   └── verify_evidence.py          # Rebuild + check submission evidence
+├── assets/                         # Brand assets (light/dark logo, composer icon)
+├── submission/                     # Repository-maintained submission evidence
 ├── .codex-plugin/
-│   └── plugin.json              # Manifest des skills-only Plugins
+│   └── plugin.json                 # Manifest for the skills-only plugin
+├── .github/workflows/              # CI validation
 └── docs/
-    ├── architecture.md          # Architektur, Lebenszyklus und Erweiterungspunkte
-    ├── skills.md                # Konventionen für wiederverwendbare Skills
-    └── plugin-experience.md     # Produktgrenze und Plugin-Entscheidungen
+    ├── architecture.md             # Architecture, lifecycle, and extension points
+    ├── agent-contract.md           # What every reusable agent must declare
+    ├── security.md                 # Security model and approval gates
+    ├── skills.md                   # Conventions for reusable skills
+    ├── brand-rationale.md          # Brand mark rationale
+    └── plugin-experience.md        # Product boundary and plugin decisions
 ```
 
-## Schnellstart
+## Quick start
 
-1. Lies [AGENTS.md](AGENTS.md), bevor du Dateien ergänzt oder änderst.
-2. Lege für jede klar abgegrenzte Rolle eine Definition unter `agents/` an.
-3. Beschreibe wiederkehrende Fähigkeiten unter `skills/`.
-4. Komponiere mehrere Agenten und Skills erst dann in einem Workflow unter `workflows/`.
-5. Prüfe vor dem Commit, ob Zweck, Eingaben, Ausgaben, Grenzen und Erfolgskriterien eindeutig sind.
+1. Read [AGENTS.md](AGENTS.md) before you add or change files.
+2. Create a definition under `agents/` for each clearly bounded role.
+3. Describe recurring capabilities under `skills/`.
+4. Only compose multiple agents and skills into a workflow under `workflows/` once they exist.
+5. Before committing, check that purpose, inputs, outputs, boundaries, and success criteria
+   are unambiguous.
 
-Für allgemeine Projektarbeit kann der Inhalt von
-[`prompts/agent-common.md`](prompts/agent-common.md) direkt als Projektanweisung
-verwendet werden. Neue Aufträge beginnen mit
-[`templates/task-brief.md`](templates/task-brief.md). Das enthaltene
-`skills-only`-Plugin stellt denselben Ablauf in Codex-kompatibler Form bereit.
+For general project work, the contents of
+[`prompts/agent-common.md`](prompts/agent-common.md) can be used directly as a project
+instruction. New assignments start from [`templates/task-brief.md`](templates/task-brief.md).
+The bundled `skills-only` plugin provides the same flow in a Codex-compatible form.
 
-## Grundprinzipien
+## Core principles
 
-- **Pragmatisch:** Erst die kleinste Lösung, die den Anwendungsfall zuverlässig abdeckt.
-- **Präzise:** Jede Definition benennt Zweck, Zuständigkeit, Eingaben, Ausgaben und Grenzen.
-- **Eigenständig:** Agenten arbeiten innerhalb ihres Auftrags selbstständig und eskalieren nur bei echten Entscheidungs- oder Sicherheitsfragen.
-- **Nachvollziehbar:** Ergebnisse enthalten relevante Annahmen, Quellen und offene Punkte.
-- **Sicher:** Keine Geheimnisse, Zugangsdaten oder personenbezogenen Daten in Definitionen, Beispielen oder Commits.
-- **Komponierbar:** Skills liefern Fähigkeiten; Workflows verbinden sie; Agenten übernehmen Rollen.
+- **Pragmatic:** the smallest solution that reliably covers the use case comes first.
+- **Precise:** every definition names purpose, responsibility, inputs, outputs, and boundaries.
+- **Autonomous:** agents work independently within their assignment and escalate only on
+  genuine decision or security questions.
+- **Traceable:** results include the relevant assumptions, sources, and open points.
+- **Secure:** no secrets, credentials, or personal data in definitions, examples, or commits.
+- **Composable:** skills provide capabilities; workflows connect them; agents take on roles.
 
 ## Status
 
-Das Repository enthält die Projektgrundstruktur, wiederverwendbare Agenten und
-Workflows sowie ein lokal validierbares `skills-only`-Plugin. Eine öffentliche
-Plugin-Einreichung ist noch nicht freigegeben; dafür fehlen insbesondere eine
-gegebenenfalls erforderliche Marketplace-Verifikation sowie die in
-[`docs/plugin-experience.md`](docs/plugin-experience.md) genannten URLs und
-Portalbestätigungen. Listing- und Reviewer-Nachweise liegen unter
-[`submission/`](submission/) vor.
+This is a `0.1.0-beta.1` pre-release. The repository contains the project foundation,
+reusable agents and workflows, a locally verifiable `skills-only` plugin, brand assets, and
+a reproducible package build with matching evidence under [`submission/`](submission/).
 
-## Beiträge
+A public plugin submission is **not** in scope for this beta and is intentionally not
+released. The remaining steps are outside the repository and belong to the publisher:
 
-Neue Inhalte sollten:
+- public website, customer-support, privacy-policy, and terms-of-service URLs
+  (currently `null` in [`submission/listing.json`](submission/listing.json)),
+- publisher verification in the OpenAI Platform,
+- a country/region availability selection,
+- any additionally required marketplace verification.
 
-- einem konkreten wiederkehrenden Anwendungsfall dienen,
-- die bestehenden Vorlagen und Konventionen verwenden,
-- keine unnötige Laufzeit- oder Anbieterabhängigkeit einführen,
-- mit einem kleinen, verständlichen Commit beschrieben werden.
+See [`docs/plugin-experience.md`](docs/plugin-experience.md) for the product boundary.
 
+## Contributing
+
+New content should:
+
+- serve a concrete, recurring use case,
+- use the existing templates and conventions,
+- introduce no unnecessary runtime or vendor dependency,
+- be described in a small, understandable commit.
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) and [AGENTS.md](AGENTS.md).

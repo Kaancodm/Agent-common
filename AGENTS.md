@@ -1,41 +1,43 @@
-# Arbeitsregeln für Agent Common
+# Working rules for Agent Common
 
-## Auftrag
+## Mandate
 
-Dieses Repository sammelt wiederverwendbare Agent-Definitionen, Skills und Workflows. Änderungen sollen die gemeinsame Arbeitsweise verbessern und nicht nur eine einzelne, einmalige Ausführung dokumentieren.
+This repository collects reusable agent definitions, skills, and workflows. Changes should
+improve the shared way of working, not merely document a single one-off run.
 
-## Vor jeder Änderung
+## Before every change
 
-1. Lies die README und die relevante Bereichsdokumentation unter `agents/`, `docs/skills.md` oder `workflows/`.
-2. Bestimme den konkreten Nutzerwert und den kleinsten sinnvollen Änderungsumfang.
-3. Prüfe, ob bereits eine passende Definition existiert, bevor du eine neue anlegst.
-4. Halte Annahmen sichtbar fest, wenn Anforderungen nicht vollständig spezifiziert sind.
+1. Read the README and the relevant area documentation under `agents/`, `docs/skills.md`,
+   or `workflows/`.
+2. Determine the concrete user value and the smallest meaningful change scope.
+3. Check whether a suitable definition already exists before creating a new one.
+4. Keep assumptions visible when requirements are not fully specified.
 
-## Regeln für Agenten und Skills
+## Rules for agents and skills
 
-- Ein Agent hat genau eine primäre Rolle.
-- Ein Skill beschreibt eine wiederverwendbare Fähigkeit, keine allgemeine Wunschliste.
-- Ein Workflow benennt Reihenfolge, Übergaben, Abbruchbedingungen und Erfolgskriterien.
-- Eingaben und Ausgaben müssen für einen anderen Agenten verständlich und prüfbar sein.
-- Sicherheits- und Berechtigungsgrenzen gehören in die Definition, nicht nur in die Implementierung.
-- Anbieter- oder modellabhängige Details werden als Adapter dokumentiert und nicht in fachliche Regeln eingebettet.
-- Keine Secrets, Tokens, privaten Schlüssel oder realen personenbezogenen Daten committen.
+- An agent has exactly one primary role.
+- A skill describes one reusable capability, not a general wish list.
+- A workflow names order, handoffs, abort conditions, and success criteria.
+- Inputs and outputs must be understandable and checkable by another agent.
+- Security and permission boundaries belong in the definition, not only in the implementation.
+- Vendor- or model-specific details are documented as adapters and not baked into domain rules.
+- Never commit secrets, tokens, private keys, or real personal data.
 
-## Arbeitsweise
+## Way of working
 
-- Antworte kurz, konkret und handlungsorientiert.
-- Bevorzuge vorhandene Dateien, Quellen und Werkzeuge.
-- Stelle nur Fragen, wenn eine falsche Annahme den Umfang, die Sicherheit oder das Ergebnis wesentlich verändern würde.
-- Melde Unsicherheiten, fehlende Quellen und nicht ausgeführte Prüfungen ausdrücklich.
-- Vermeide unnötige Abstraktionen, Frameworks und Abhängigkeiten.
-- Ändere nur Dateien, die zum Auftrag gehören.
+- Answer briefly, concretely, and action-oriented.
+- Prefer existing files, sources, and tools.
+- Ask questions only when a wrong assumption would materially change scope, security, or result.
+- Explicitly report uncertainties, missing sources, and checks that were not run.
+- Avoid unnecessary abstractions, frameworks, and dependencies.
+- Change only files that belong to the assignment.
 
 ## Definition of Done
 
-Eine Änderung ist fertig, wenn:
+A change is finished when:
 
-- Zweck und Nutzung in der passenden README oder Vorlage nachvollziehbar sind,
-- Verantwortlichkeiten und Grenzen eindeutig sind,
-- Beispiele keine sensiblen Daten enthalten,
-- Querverweise und Pfade stimmen,
-- die Änderung auf Inkonsistenzen oder Tippfehler geprüft wurde.
+- purpose and use are traceable in the appropriate README or template,
+- responsibilities and boundaries are unambiguous,
+- examples contain no sensitive data,
+- cross-references and paths are correct,
+- the change has been checked for inconsistencies and typos.

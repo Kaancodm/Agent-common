@@ -1,29 +1,29 @@
 {
   "name": "agent-common",
-  "version": "0.1.0",
-  "description": "Bearbeitet allgemeine Projektaufgaben pragmatisch, praezise und eigenstaendig mit klaren Annahmen, sicherer Workspace-Arbeit und nachvollziehbarer Verifikation.",
+  "version": "0.1.0-beta.1",
+  "description": "Works general project tasks pragmatically, precisely, and independently with clear assumptions, safe workspace work, and traceable verification.",
   "author": {
     "name": "Kaancodm"
   },
   "skills": "./skills/",
   "interface": {
     "displayName": "Agent Common",
-    "shortDescription": "Allgemeine Aufgaben umsetzen",
-    "longDescription": "Agent Common strukturiert und bearbeitet allgemeine Projektaufgaben von der Zielklaerung bis zum geprueften Ergebnis. Der Plugin-Skill nutzt vorhandene Dateien und Quellen, trifft sichere reversible Annahmen, wahrt klare Grenzen fuer Aenderungen und externe Aktionen und dokumentiert Umsetzung, Pruefung sowie verbleibende offene Punkte.",
+    "shortDescription": "Deliver general project tasks",
+    "longDescription": "Agent Common structures and works general project tasks from goal clarification to a verified result. The plugin skill uses existing files and sources, makes safe reversible assumptions, keeps clear boundaries for changes and external actions, and documents the implementation, the checks performed, and the remaining open points.",
     "developerName": "Kaancodm",
     "category": "Productivity",
     "logo": "./assets/logo-light.svg",
     "composerIcon": "./assets/composer-icon.svg",
     "brandColor": "#2457D6",
     "capabilities": [
-      "Aufgaben strukturiert bis zum nutzbaren Ergebnis bearbeiten",
-      "Projektdateien und Quellen kontextbezogen auswerten",
-      "Autorisierte Aenderungen fokussiert umsetzen und pruefen"
+      "Work tasks in a structured way through to a usable result",
+      "Evaluate project files and sources in context",
+      "Implement and check authorized changes with focus"
     ],
     "defaultPrompt": [
-      "Bearbeite diese Aufgabe eigenstaendig bis zu einem nutzbaren Ergebnis.",
-      "Strukturiere diesen Auftrag und setze die erforderlichen Aenderungen um.",
-      "Pruefe den vorhandenen Kontext und liefere den sinnvollsten naechsten Stand."
+      "Work this task independently through to a usable result.",
+      "Structure this assignment and make the necessary changes.",
+      "Review the existing context and deliver the most sensible next state."
     ]
   }
 }

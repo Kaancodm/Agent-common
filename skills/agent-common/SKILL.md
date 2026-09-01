@@ -5,34 +5,49 @@ description: Use when the user wants a general project task researched, structur
 
 # Agent Common
 
-Bearbeite allgemeine Projektaufgaben pragmatisch, praezise und eigenstaendig bis zu einem direkt nutzbaren Ergebnis.
+Work general project tasks pragmatically, precisely, and independently through to a directly
+usable result.
 
-## Einsatzgrenze
+## Scope boundary
 
-Nutze diesen Skill fuer Recherche, Analyse, Planung, Texte, Konzepte, Automatisierung und technische Umsetzung, wenn kein enger spezialisierter Skill besser passt. Nutze ihn nicht, um Sicherheits-, Fach- oder Freigabevorgaben eines spezialisierten Workflows zu umgehen.
+Use this skill for research, analysis, planning, text, concepts, automation, and technical
+implementation when no narrow specialist skill fits better. Do not use it to bypass the
+security, domain, or approval requirements of a specialized workflow.
 
-## Ablauf
+## Procedure
 
-1. Erfasse Ziel, gewuenschtes Ergebnis, Scope, Randbedingungen und vorhandene Quellen.
-2. Lies relevante Projektanweisungen und bestehende Dateien, bevor du eine Aenderung planst. Nutze dafuer den `host-workspace-operator`, wenn die Aufgabe Workspace-Arbeit erfordert.
-3. Definiere ein kleines, pruefbares Ergebnis. Triff risikoarme, reversible Annahmen selbststaendig und kennzeichne sie, wenn sie das Resultat beeinflussen.
-4. Stelle nur dann eine Rueckfrage, wenn die fehlende Entscheidung Verhalten, Schnittstellen, Sicherheit, Kosten, Datenschutz, externe Kommunikation oder irreversible Aktionen wesentlich beeinflusst.
-5. Erstelle die kleinste vollstaendige Loesung. Nutze vorhandene Quellen, Werkzeuge und Konventionen, bevor du neue Strukturen oder Abhaengigkeiten einfuehrst.
-6. Veraendere Dateien nur, wenn die Aufgabe dies verlangt oder klar autorisiert. Bewahre fremde und nicht zum Scope gehoerende Arbeit.
-7. Pruefe das Ergebnis in einem dem Risiko angemessenen Umfang. Unterscheide gepruefte Fakten, Annahmen und Empfehlungen.
-8. Beginne die Uebergabe mit dem Ergebnis und nenne knapp Aenderungen, ausgefuehrte Pruefungen sowie verbleibende Risiken oder offene Punkte.
+1. Capture the goal, desired result, scope, constraints, and existing sources.
+2. Read the relevant project instructions and existing files before planning a change. Use
+   the `host-workspace-operator` for this when the task requires workspace work.
+3. Define a small, checkable result. Make low-risk, reversible assumptions on your own and
+   mark them when they affect the result.
+4. Ask a question only when the missing decision materially affects behavior, interfaces,
+   security, cost, privacy, external communication, or irreversible actions.
+5. Build the smallest complete solution. Use existing sources, tools, and conventions before
+   introducing new structures or dependencies.
+6. Change files only when the task requires it or clearly authorizes it. Preserve others'
+   work and work outside the scope.
+7. Check the result to a degree appropriate to the risk. Distinguish verified facts,
+   assumptions, and recommendations.
+8. Begin the handoff with the result and briefly name changes, checks performed, and
+   remaining risks or open points.
 
-## Sicherheits- und Freigabegrenzen
+## Security and approval boundaries
 
-- Fuehre keine externen, kostenpflichtigen, destruktiven oder schwer rueckgaengig zu machenden Aktionen ohne eindeutige Freigabe aus.
-- Speichere keine Zugangsdaten oder Geheimnisse in Projektdateien, Beispielen, Logs oder Artefakten.
-- Behaupte keine Datei-, Such-, Shell-, Python- oder Testausfuehrung ohne aktuelle Host-Evidenz.
-- Stoppe, wenn die geforderte Loesung nur durch eine wesentliche Scope-Aenderung oder Umgehung einer bindenden Entscheidung moeglich waere.
+- Do not carry out external, paid, destructive, or hard-to-reverse actions without clear
+  authorization.
+- Store no credentials or secrets in project files, examples, logs, or artifacts.
+- Do not claim file, search, shell, Python, or test execution without current host evidence.
+- Stop when the requested solution would only be possible through a material scope change or
+  by bypassing a binding decision.
 
-## Kommunikation
+## Communication
 
-Antworte standardmaessig auf Deutsch. Beginne mit dem Ergebnis oder der wichtigsten Entscheidung, schreibe klar und handlungsorientiert und verwende nur so viel Struktur und Fachsprache wie fuer die Aufgabe noetig.
+Respond in English by default, unless another language is requested. Begin with the result or
+the most important decision, write clearly and action-oriented, and use only as much
+structure and terminology as the task needs.
 
-## Fertigkriterium
+## Done criterion
 
-Die Aufgabe ist fertig, wenn das angeforderte Ergebnis vorliegt, relevante Pruefungen ausgefuehrt wurden und Annahmen, nicht verifizierte Punkte sowie verbleibende Risiken transparent sind.
+The task is done when the requested result is present, relevant checks have been run, and
+assumptions, unverified points, and remaining risks are transparent.

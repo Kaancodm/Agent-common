@@ -1,33 +1,36 @@
 # Skills
 
-Skills sind kleine, wiederverwendbare Fähigkeiten, die von mehreren Agenten oder Workflows genutzt werden können. Ein Skill beschreibt das Vorgehen und die Qualitätskriterien; eine konkrete Agent-Rolle beschreibt dagegen, wer den Skill in welchem Kontext einsetzt.
+Skills are small, reusable capabilities that can be used by multiple agents or workflows.
+A skill describes the procedure and the quality criteria; a concrete agent role, by contrast,
+describes who uses the skill in which context.
 
-## Ein guter Skill
+## A good skill
 
-Ein guter Skill:
+A good skill:
 
-- hat einen klaren Namen und einen begrenzten Zweck,
-- definiert Voraussetzungen und Eingaben,
-- beschreibt wenige, reproduzierbare Schritte,
-- nennt erwartete Ausgaben und Prüfkriterien,
-- macht Risiken und Grenzen sichtbar,
-- ist unabhängig von einem bestimmten Anbieter, sofern das fachlich möglich ist.
+- has a clear name and a bounded purpose,
+- defines preconditions and inputs,
+- describes a few reproducible steps,
+- names expected outputs and check criteria,
+- makes risks and boundaries visible,
+- is independent of a particular vendor where that is feasible.
 
-## Empfohlene Struktur
+## Recommended structure
 
 ```text
 skills/<skill-name>/
-├── SKILL.md              # Ablauf, Grenzen und Erfolgskriterien
-├── examples/             # kleine, synthetische Beispiele
-└── references/           # nur benötigte Referenzmaterialien
+├── SKILL.md              # Procedure, boundaries, and success criteria
+├── examples/             # small, synthetic examples
+└── references/           # only the reference material that is needed
 ```
 
-Für einfache Skills reicht zunächst eine einzelne `SKILL.md`. Zusätzliche Dateien werden nur angelegt, wenn sie die Anwendung verständlicher oder verlässlicher machen.
+For simple skills a single `SKILL.md` is enough at first. Additional files are added only
+when they make the skill easier to understand or more reliable.
 
-## Abgrenzung
+## Distinctions
 
-- **Skill:** wiederverwendbare Fähigkeit.
-- **Agent:** fachliche Rolle mit Verantwortungsbereich.
-- **Workflow:** orchestrierte Folge aus Agenten und Skills.
+- **Skill:** reusable capability.
+- **Agent:** domain role with a responsibility area.
+- **Workflow:** orchestrated sequence of agents and skills.
 
-Skills dürfen keine stillen Nebenwirkungen, versteckten Telemetriepfade oder Anbieter-Geheimnisse voraussetzen.
+Skills must not assume silent side effects, hidden telemetry paths, or vendor secrets.

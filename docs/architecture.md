@@ -1,36 +1,41 @@
-# Architektur
+# Architecture
 
-## Leitidee
+## Guiding idea
 
-Agent Common trennt fachliche Beschreibung von technischer Ausführung:
+Agent Common separates domain description from technical execution:
 
-- Agenten definieren Rollen und Verantwortungsgrenzen.
-- Skills definieren wiederverwendbare Fähigkeiten.
-- Workflows definieren Reihenfolge und Übergaben.
-- Adapter verbinden diese Definitionen später mit Modellen, Tools oder Laufzeiten.
+- Agents define roles and responsibility boundaries.
+- Skills define reusable capabilities.
+- Workflows define order and handoffs.
+- Adapters connect these definitions to models, tools, or runtimes later.
 
-Dadurch können fachliche Regeln unabhängig von einem einzelnen Anbieter gepflegt und getestet werden.
+This lets domain rules be maintained and tested independently of any single vendor.
 
-## Lebenszyklus
+## Lifecycle
 
-1. **Anforderung:** Ziel, Nutzerwert und Grenzen beschreiben.
-2. **Definition:** Agent, Skill oder Workflow mit der passenden Vorlage anlegen.
-3. **Prüfung:** Eingaben, Ausgaben, Risiken und Erfolgskriterien schärfen.
-4. **Adapter:** Erst bei Bedarf eine technische Ausführung ergänzen.
-5. **Verifikation:** Verhalten mit synthetischen Beispielen und realistischen Fehlerfällen prüfen.
-6. **Pflege:** Änderungen an Verträgen und Abhängigkeiten nachvollziehbar dokumentieren.
+1. **Requirement:** describe goal, user value, and boundaries.
+2. **Definition:** create the agent, skill, or workflow from the appropriate template.
+3. **Review:** sharpen inputs, outputs, risks, and success criteria.
+4. **Adapter:** add a technical execution only when needed.
+5. **Verification:** check behavior with synthetic examples and realistic failure cases.
+6. **Maintenance:** document changes to contracts and dependencies traceably.
 
-## Erweiterungspunkte
+## Extension points
 
-Die initiale Struktur lässt spätere Ergänzungen zu:
+The initial structure allows later additions:
 
-- `adapters/` für Modell-, Tool- oder Laufzeitintegrationen,
-- `tests/` für strukturierte Definitionstests,
-- `examples/` für vollständige, synthetische Durchläufe,
-- `config/` für nicht geheime, umgebungsunabhängige Konfiguration.
+- `adapters/` for model, tool, or runtime integrations,
+- `tests/` for structured definition tests,
+- `examples/` for complete, synthetic runs,
+- `config/` for non-secret, environment-independent configuration.
 
-Diese Verzeichnisse werden erst eingeführt, wenn ein konkreter Bedarf besteht. Leere Platzhalterordner werden nicht versioniert.
+These directories are introduced only when there is a concrete need. Empty placeholder
+folders are not versioned. `scripts/` already exists and holds the deterministic
+plugin-package build and the evidence-verification tooling.
 
-## Sicherheitsmodell
+## Security model
 
-Definitionen dürfen beschreiben, welche Berechtigungen ein Ablauf benötigt. Geheimnisse und konkrete Zugangsdaten gehören ausschließlich in die sichere Laufzeitumgebung. Aktionen mit externen oder irreversiblen Auswirkungen müssen als solche erkennbar sein; ein Agent darf die dafür nötige Berechtigung nicht stillschweigend annehmen.
+Definitions may describe which permissions a flow needs. Secrets and concrete credentials
+belong exclusively in the secure runtime environment. Actions with external or irreversible
+effects must be recognizable as such; an agent must not silently assume the permission
+required for them.

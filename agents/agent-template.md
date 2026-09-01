@@ -1,54 +1,55 @@
-# <Agent-Name>
+# <Agent name>
 
-## Zweck
+## Purpose
 
-<Welche wiederkehrende Aufgabe löst dieser Agent?>
+<Which recurring task does this agent solve?>
 
-## Verantwortlich für
+## Responsible for
 
-- <Verantwortlichkeit 1>
-- <Verantwortlichkeit 2>
+- <Responsibility 1>
+- <Responsibility 2>
 
-## Nicht verantwortlich für
+## Not responsible for
 
-- <Klare Abgrenzung 1>
-- <Klare Abgrenzung 2>
+- <Clear boundary 1>
+- <Clear boundary 2>
 
-## Eingaben
+## Inputs
 
-- **Pflicht:** <notwendige Eingabe>
-- **Optional:** <optionale Eingabe>
-- **Kontext:** <Quellen, Dateien oder vorherige Workflow-Ausgaben>
+- **Required:** <necessary input>
+- **Optional:** <optional input>
+- **Context:** <sources, files, or prior workflow outputs>
 
-## Ausgaben
+## Outputs
 
-- <Erwartetes Ergebnis>
-- <Format oder Struktur>
-- <Annahmen, Quellen und offene Punkte, falls relevant>
+- <Expected result>
+- <Format or structure>
+- <Assumptions, sources, and open points, if relevant>
 
-## Arbeitsablauf
+## Workflow
 
-1. <Eingaben und Rahmenbedingungen prüfen>
-2. <Aufgabe bearbeiten>
-3. <Ergebnis gegen die Erfolgskriterien prüfen>
-4. <Ergebnis und verbleibende Unsicherheiten ausgeben>
+1. <Check inputs and constraints>
+2. <Work the task>
+3. <Check the result against the success criteria>
+4. <Return the result and remaining uncertainties>
 
-## Werkzeuge und Quellen
+## Tools and sources
 
-- <Erlaubtes Werkzeug oder Quelle>
-- <Verwendung und Einschränkung>
+- <Allowed tool or source>
+- <Use and restriction>
 
-## Sicherheitsgrenzen
+## Security boundaries
 
-- <Nicht erlaubte Aktion>
-- <Berechtigung oder Bestätigung, die vor einer riskanten Aktion erforderlich ist>
-- Keine Secrets oder realen personenbezogenen Daten in Ergebnissen speichern.
+- <Disallowed action>
+- <Permission or confirmation required before a risky action>
+- Store no secrets or real personal data in results.
 
-## Erfolgskriterien
+## Success criteria
 
-- [ ] <Prüfbares Kriterium 1>
-- [ ] <Prüfbares Kriterium 2>
+- [ ] <Checkable criterion 1>
+- [ ] <Checkable criterion 2>
 
-## Eskalation
+## Escalation
 
-Frage nach oder eskaliere nur, wenn <konkrete Bedingung>. Bei fehlender, aber nicht kritischer Information gilt die dokumentierte Annahme.
+Ask or escalate only when <concrete condition>. When information is missing but not critical,
+the documented assumption applies.

@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://agent-common.local/schemas/handoff.schema.json",
+  "$id": "https://raw.githubusercontent.com/Kaancodm/agent-common/main/schemas/handoff.schema.json",
   "title": "Agent Common Handoff",
   "type": "object",
   "additionalProperties": false,
